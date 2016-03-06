@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="PackageInsurance" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="hasPackagePackageInsurance" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Incident" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="relatedTo" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="associateWithIncidentVehicle" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="associateWithIncidentPerson" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:choice>
+                <xs:element name="Accident">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Complaint">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Compliment">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DeliveryIncomplete" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Discount" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="WeightRange" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="hasOrderWeightRange" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Order">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="hasOrderDiscount" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="includes" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Package">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="hasOrderBasePrice" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="BasePrice">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="hasOrderDeliveryIncomplete" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Shift" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="worksEmployeeShift" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DeliveryType" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="hasOrderDeliveryType" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ZonePrice" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="hasZoneZonePrice" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Person" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:choice minOccurs="0" maxOccurs="1">
+                <xs:element name="Employee">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:choice minOccurs="0" maxOccurs="1">
+                        <xs:element name="Admin">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="id" type="xs:string" />
+                              <xs:element name="logs" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                  <xs:attribute name="ref" />
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Driver">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="id" type="xs:string" />
+                              <xs:element name="delivers" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                  <xs:attribute name="ref" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="picksUp" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                  <xs:attribute name="ref" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="drives" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                  <xs:attribute name="ref" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="hasDriverInsurance" minOccurs="1" maxOccurs="1">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Insurance">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="id" type="xs:string" />
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="hasDriverGPS" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="GPS">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="id" type="xs:string" />
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:choice>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Customer">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:element name="makes" minOccurs="1" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:attribute name="ref" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Location" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="hasBook" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Zone">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="shipFrom" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="shipTo" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="biling" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="locatedAt" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:choice minOccurs="0" maxOccurs="1">
+                <xs:element name="Shop">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:element name="repairedAt" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="Vehicle">
+                              <xs:complexType>
+                                <xs:sequence>
+                                  <xs:element name="id" type="xs:string" />
+                                  <xs:choice>
+                                    <xs:element name="Bike">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="id" type="xs:string" />
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="Motorcycle">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="id" type="xs:string" />
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="Auto">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="id" type="xs:string" />
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:choice>
+                                </xs:sequence>
+                              </xs:complexType>
+                            </xs:element>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                      <xs:element name="storedAt" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:attribute name="ref" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Office">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyPackageInsurance">
+      <xs:selector xpath=".//PackageInsurance" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefPackage1" refer="keyPackage">
+      <xs:selector xpath=".//hasPackagePackageInsurance" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyIncident">
+      <xs:selector xpath=".//Incident" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefOrder2" refer="keyOrder">
+      <xs:selector xpath=".//relatedTo" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefVehicle3" refer="keyVehicle">
+      <xs:selector xpath=".//associateWithIncidentVehicle" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefPerson4" refer="keyPerson">
+      <xs:selector xpath=".//associateWithIncidentPerson" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyAccident">
+      <xs:selector xpath=".//Accident" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyComplaint">
+      <xs:selector xpath=".//Complaint" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyCompliment">
+      <xs:selector xpath=".//Compliment" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyDeliveryIncomplete">
+      <xs:selector xpath=".//DeliveryIncomplete" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyDiscount">
+      <xs:selector xpath=".//Discount" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyWeightRange">
+      <xs:selector xpath=".//WeightRange" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyOrder">
+      <xs:selector xpath=".//Order" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefDiscount5" refer="keyDiscount">
+      <xs:selector xpath=".//hasOrderDiscount" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyPackage">
+      <xs:selector xpath=".//Package" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBasePrice">
+      <xs:selector xpath=".//BasePrice" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefDeliveryIncomplete6" refer="keyDeliveryIncomplete">
+      <xs:selector xpath=".//hasOrderDeliveryIncomplete" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyShift">
+      <xs:selector xpath=".//Shift" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefEmployee7" refer="keyEmployee">
+      <xs:selector xpath=".//worksEmployeeShift" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyDeliveryType">
+      <xs:selector xpath=".//DeliveryType" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefOrder8" refer="keyOrder">
+      <xs:selector xpath=".//hasOrderDeliveryType" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyZonePrice">
+      <xs:selector xpath=".//ZonePrice" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefZone9" refer="keyZone">
+      <xs:selector xpath=".//hasZoneZonePrice" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyPerson">
+      <xs:selector xpath=".//Person" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyEmployee">
+      <xs:selector xpath=".//Employee" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyAdmin">
+      <xs:selector xpath=".//Admin" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefOrder10" refer="keyOrder">
+      <xs:selector xpath=".//logs" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyDriver">
+      <xs:selector xpath=".//Driver" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefOrder11" refer="keyOrder">
+      <xs:selector xpath=".//delivers" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefOrder12" refer="keyOrder">
+      <xs:selector xpath=".//picksUp" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefVehicle13" refer="keyVehicle">
+      <xs:selector xpath=".//drives" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyInsurance">
+      <xs:selector xpath=".//Insurance" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyGPS">
+      <xs:selector xpath=".//GPS" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyCustomer">
+      <xs:selector xpath=".//Customer" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefOrder14" refer="keyOrder">
+      <xs:selector xpath=".//makes" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyLocation">
+      <xs:selector xpath=".//Location" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyZone">
+      <xs:selector xpath=".//Zone" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefOrder15" refer="keyOrder">
+      <xs:selector xpath=".//shipFrom" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefOrder16" refer="keyOrder">
+      <xs:selector xpath=".//shipTo" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefOrder17" refer="keyOrder">
+      <xs:selector xpath=".//biling" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefCustomer18" refer="keyCustomer">
+      <xs:selector xpath=".//locatedAt" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyShop">
+      <xs:selector xpath=".//Shop" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyVehicle">
+      <xs:selector xpath=".//Vehicle" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBike">
+      <xs:selector xpath=".//Bike" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyMotorcycle">
+      <xs:selector xpath=".//Motorcycle" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyAuto">
+      <xs:selector xpath=".//Auto" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefVehicle19" refer="keyVehicle">
+      <xs:selector xpath=".//storedAt" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyOffice">
+      <xs:selector xpath=".//Office" />
+      <xs:field xpath="id" />
+    </xs:key>
+  </xs:element>
+</xs:schema>
+

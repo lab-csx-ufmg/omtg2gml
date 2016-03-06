@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Department" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="contains" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Employee">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="manages" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="worksOn" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="hasDepen" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Dependent">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="controls" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Project">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyDepartment">
+      <xs:selector xpath=".//Department" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyEmployee">
+      <xs:selector xpath=".//Employee" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefDepartment1" refer="keyDepartment">
+      <xs:selector xpath=".//manages" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefProject2" refer="keyProject">
+      <xs:selector xpath=".//worksOn" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyDependent">
+      <xs:selector xpath=".//Dependent" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyProject">
+      <xs:selector xpath=".//Project" />
+      <xs:field xpath="id" />
+    </xs:key>
+  </xs:element>
+</xs:schema>
+

@@ -1,0 +1,4 @@
+A(int ka KEY, int num, int opc ENUM[1;2;3], string cels LEN[2..4] SIZE[1..*])
+B(int kb KEY)
+.
+A#B#R#1,1#1,1

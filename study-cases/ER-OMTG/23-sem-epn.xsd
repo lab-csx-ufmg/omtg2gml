@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Employee" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="ep" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Participate">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="eu" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Use">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:choice>
+                <xs:element name="Engineer">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Secretary">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Vendor" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="supply" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Skill" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="su" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Project" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="pp" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="pu" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Department" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="contains" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="City" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="cp" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyEmployee">
+      <xs:selector xpath=".//Employee" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyParticipate">
+      <xs:selector xpath=".//Participate" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyUse">
+      <xs:selector xpath=".//Use" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyEngineer">
+      <xs:selector xpath=".//Engineer" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keySecretary">
+      <xs:selector xpath=".//Secretary" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyVendor">
+      <xs:selector xpath=".//Vendor" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefDepartment1" refer="keyDepartment">
+      <xs:selector xpath=".//supply" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keySkill">
+      <xs:selector xpath=".//Skill" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefUse2" refer="keyUse">
+      <xs:selector xpath=".//su" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyProject">
+      <xs:selector xpath=".//Project" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefParticipate3" refer="keyParticipate">
+      <xs:selector xpath=".//pp" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefUse4" refer="keyUse">
+      <xs:selector xpath=".//pu" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyDepartment">
+      <xs:selector xpath=".//Department" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefEmployee5" refer="keyEmployee">
+      <xs:selector xpath=".//contains" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyCity">
+      <xs:selector xpath=".//City" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefParticipate6" refer="keyParticipate">
+      <xs:selector xpath=".//cp" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>
+

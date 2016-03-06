@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CourseInstance" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="enrols" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="User" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="has" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:choice>
+                <xs:element name="Student">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:choice>
+                        <xs:element name="PHD">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="id" type="xs:string" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="TA">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="id" type="xs:string" />
+                              <xs:element name="helpsIn" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                  <xs:attribute name="ref" />
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:choice>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Teacher">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:element name="teachs" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:attribute name="ref" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Employee">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:choice>
+                        <xs:element name="AdminStaff">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="id" type="xs:string" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:choice>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Course" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="isScheduled" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Salary" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyCourseInstance">
+      <xs:selector xpath=".//CourseInstance" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefStudent1" refer="keyStudent">
+      <xs:selector xpath=".//enrols" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyUser">
+      <xs:selector xpath=".//User" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefSalary2" refer="keySalary">
+      <xs:selector xpath=".//has" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyStudent">
+      <xs:selector xpath=".//Student" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyPHD">
+      <xs:selector xpath=".//PHD" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyTA">
+      <xs:selector xpath=".//TA" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefCourseInstance3" refer="keyCourseInstance">
+      <xs:selector xpath=".//helpsIn" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyTeacher">
+      <xs:selector xpath=".//Teacher" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefCourseInstance4" refer="keyCourseInstance">
+      <xs:selector xpath=".//teachs" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyEmployee">
+      <xs:selector xpath=".//Employee" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyAdminStaff">
+      <xs:selector xpath=".//AdminStaff" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyCourse">
+      <xs:selector xpath=".//Course" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefCourseInstance5" refer="keyCourseInstance">
+      <xs:selector xpath=".//isScheduled" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keySalary">
+      <xs:selector xpath=".//Salary" />
+      <xs:field xpath="id" />
+    </xs:key>
+  </xs:element>
+</xs:schema>
+

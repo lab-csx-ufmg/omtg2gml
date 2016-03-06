@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Issue" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="containsIC" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Contains">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="containsSI" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="containsII" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Item">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="identifiedByItem" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Standard-Number">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="containsPI" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="identifiedByIssue" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Collection" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="containsCC" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="containsCS" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="SubCollection">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Page" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Aggregate" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="containsAC" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="containsAI" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyIssue">
+      <xs:selector xpath=".//Issue" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyContains">
+      <xs:selector xpath=".//Contains" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefSubCollection1" refer="keySubCollection">
+      <xs:selector xpath=".//containsSI" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyItem">
+      <xs:selector xpath=".//Item" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyStandard-Number">
+      <xs:selector xpath=".//Standard-Number" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefPage2" refer="keyPage">
+      <xs:selector xpath=".//containsPI" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefStandard-Number3" refer="keyStandard-Number">
+      <xs:selector xpath=".//identifiedByIssue" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyCollection">
+      <xs:selector xpath=".//Collection" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefContains4" refer="keyContains">
+      <xs:selector xpath=".//containsCC" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keySubCollection">
+      <xs:selector xpath=".//SubCollection" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyPage">
+      <xs:selector xpath=".//Page" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyAggregate">
+      <xs:selector xpath=".//Aggregate" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefContains5" refer="keyContains">
+      <xs:selector xpath=".//containsAC" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefIssue6" refer="keyIssue">
+      <xs:selector xpath=".//containsAI" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>
+

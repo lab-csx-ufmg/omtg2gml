@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="spatialDomain" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="gml:boundedBy" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="gml:extentOf" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="A_3" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="k3" type="xs:integer" />
+              <xs:element name="R2" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="A_4">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="k4" type="xs:integer" />
+                          <xs:element name="R5" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="A_5">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="k5" type="xs:integer" />
+                                      <xs:element name="R6" minOccurs="1" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="A_6">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="k6" type="xs:integer" />
+                                                  <xs:element name="R7" minOccurs="1" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="A_7">
+                                                          <xs:complexType>
+                                                            <xs:sequence>
+                                                              <xs:element name="k7" type="xs:integer" />
+                                                            </xs:sequence>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                      </xs:sequence>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="R3" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="A_2">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="k2" type="xs:integer" />
+                          <xs:element name="R4" minOccurs="1" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="A_1">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="k1" type="xs:integer" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyA_3">
+      <xs:selector xpath=".//A_3" />
+      <xs:field xpath="k3" />
+    </xs:key>
+    <xs:key name="keyA_4">
+      <xs:selector xpath=".//A_4" />
+      <xs:field xpath="k4" />
+    </xs:key>
+    <xs:key name="keyA_5">
+      <xs:selector xpath=".//A_5" />
+      <xs:field xpath="k5" />
+    </xs:key>
+    <xs:key name="keyA_6">
+      <xs:selector xpath=".//A_6" />
+      <xs:field xpath="k6" />
+    </xs:key>
+    <xs:key name="keyA_7">
+      <xs:selector xpath=".//A_7" />
+      <xs:field xpath="k7" />
+    </xs:key>
+    <xs:key name="keyA_2">
+      <xs:selector xpath=".//A_2" />
+      <xs:field xpath="k2" />
+    </xs:key>
+    <xs:key name="keyA_1">
+      <xs:selector xpath=".//A_1" />
+      <xs:field xpath="k1" />
+    </xs:key>
+  </xs:element>
+</xs:schema>
+

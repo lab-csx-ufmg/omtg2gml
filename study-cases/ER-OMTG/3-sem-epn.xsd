@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Client" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="holds" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Lease">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="cliRegis" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Registers">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Owner" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="owns" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="PropertyForRent">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="oversees" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="leasedBy" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:choice>
+                <xs:element name="PrivateOwner">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="BusinessOwner">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Branch" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="staRegis" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="offers" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Staff" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:choice minOccurs="0" maxOccurs="1">
+                <xs:element name="Supervisor">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:element name="supervises" minOccurs="1" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:attribute name="ref" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Manager">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Newspaper" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="advertises" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Preference" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyClient">
+      <xs:selector xpath=".//Client" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyLease">
+      <xs:selector xpath=".//Lease" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyRegisters">
+      <xs:selector xpath=".//Registers" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyOwner">
+      <xs:selector xpath=".//Owner" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyPropertyForRent">
+      <xs:selector xpath=".//PropertyForRent" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefStaff1" refer="keyStaff">
+      <xs:selector xpath=".//oversees" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefLease2" refer="keyLease">
+      <xs:selector xpath=".//leasedBy" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyPrivateOwner">
+      <xs:selector xpath=".//PrivateOwner" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBusinessOwner">
+      <xs:selector xpath=".//BusinessOwner" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBranch">
+      <xs:selector xpath=".//Branch" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefRegisters3" refer="keyRegisters">
+      <xs:selector xpath=".//staRegis" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefPropertyForRent4" refer="keyPropertyForRent">
+      <xs:selector xpath=".//offers" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyStaff">
+      <xs:selector xpath=".//Staff" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keySupervisor">
+      <xs:selector xpath=".//Supervisor" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keysupervises">
+      <xs:selector xpath=".//supervises" />
+      <xs:field xpath="@ref" />
+    </xs:key>
+    <xs:keyref name="keyrefStaff5" refer="keyStaff">
+      <xs:selector xpath=".//supervises" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyManager">
+      <xs:selector xpath=".//Manager" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyNewspaper">
+      <xs:selector xpath=".//Newspaper" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefPropertyForRent6" refer="keyPropertyForRent">
+      <xs:selector xpath=".//advertises" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyPreference">
+      <xs:selector xpath=".//Preference" />
+      <xs:field xpath="id" />
+    </xs:key>
+  </xs:element>
+</xs:schema>
+

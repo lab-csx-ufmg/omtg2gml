@@ -1,0 +1,374 @@
+16/10/2010 11:51:38 Log <init>
+INFO: Starting log
+16/10/2010 11:51:39 XMLParser createOMTGSchema
+INFO: Reading xml document: ER-OMTG/23.xml
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: className: Vendor
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: className: Department
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: className: Employee
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: className: Engineer
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: className: Secretary
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: className: City
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: className: Project
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: className: Skill
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: className: Use
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: className: Participate
+16/10/2010 11:51:39 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 11:51:39 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 11:51:39 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: name: supply
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Vendor
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: n
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,n)
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Department
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 11:51:39 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: name: contains
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Department
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Employee
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 11:51:39 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: name: cp
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: City
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Participate
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 11:51:39 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: name: pp
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Project
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Participate
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 11:51:39 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: name: ep
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Employee
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Participate
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 11:51:39 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: name: eu
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Employee
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Use
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 11:51:39 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: name: su
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Skill
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Use
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 11:51:39 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: name: pu
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Project
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Use
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 11:51:39 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 11:51:39 XMLParser createOMTGRelationships
+INFO: relationship generalization
+16/10/2010 11:51:39 XMLParser createOMTGConventionalGeneralization
+INFO: superclass: Employee
+16/10/2010 11:51:39 XMLParser createOMTGConventionalGeneralization
+INFO: participation: total
+16/10/2010 11:51:39 XMLParser createOMTGConventionalGeneralization
+INFO: disjointness: disjoint
+16/10/2010 11:51:39 XMLParser createSubclasses
+INFO: subclasses: [Engineer, Secretary]

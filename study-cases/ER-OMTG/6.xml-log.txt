@@ -1,0 +1,344 @@
+16/10/2010 10:45:45 Log <init>
+INFO: Starting log
+16/10/2010 10:45:46 XMLParser createOMTGSchema
+INFO: Reading xml document: ER-OMTG/6.xml
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: className: Segment
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: className: Category
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: className: Brands
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: className: Customer
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: className: Product
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: className: Payment
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: className: CartItem
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: className: Cart
+16/10/2010 10:45:46 XMLParser createOMTGClass
+INFO: classType: conventional
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeName: id
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeType: number
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeLength: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeScale: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeKey: true
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeNotNull: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeDefault: null
+16/10/2010 10:45:46 XMLParser createOMTGAttribute
+INFO: attributeSize: null
+16/10/2010 10:45:46 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 10:45:46 XMLParser createOMTGConventionalRelationship
+INFO: name: hasSegCat
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Segment
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Category
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 10:45:47 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: name: belongTo
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Segment
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,n)
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Brands
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 10:45:47 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: name: hasCatBran
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Category
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Brands
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 10:45:47 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: name: hasBranProd
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Brands
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,n)
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Product
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 10:45:47 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: name: contains
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: CartItem
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Product
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 10:45:47 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: name: buys
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Customer
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,n)
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Product
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 10:45:47 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: name: does
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Customer
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Payment
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)
+16/10/2010 10:45:47 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: name: doneFor
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Payment
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: Cart
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,1)
+16/10/2010 10:45:47 XMLParser createOMTGRelationships
+INFO: relationship conventional
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: name: madeOf
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class1Name: Cart
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1Max: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality1: (1,1)
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: class2Name: CartItem
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Min: 1
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2Max: n
+16/10/2010 10:45:47 XMLParser createOMTGConventionalRelationship
+INFO: cardinality2: (1,n)

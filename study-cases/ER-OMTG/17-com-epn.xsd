@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Despesa" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="ordemDesp" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TipoEquipamento" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="equipTipoEquip" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Equipamento">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TipoContrato" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="servContr" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Cliente" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="clienEquip" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="tipoContClien" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="clienCham" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Chamado">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="servChama" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="chamEquip" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="chamOrdem" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="OrdemDeServico">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                      <xs:element name="ordemTec" minOccurs="1" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:attribute name="ref" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="ordemMat" minOccurs="1" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:attribute name="ref" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tecnico" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Material" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Servico" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyDespesa">
+      <xs:selector xpath=".//Despesa" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefOrdemDeServico1" refer="keyOrdemDeServico">
+      <xs:selector xpath=".//ordemDesp" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyTipoEquipamento">
+      <xs:selector xpath=".//TipoEquipamento" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyEquipamento">
+      <xs:selector xpath=".//Equipamento" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyTipoContrato">
+      <xs:selector xpath=".//TipoContrato" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefServico2" refer="keyServico">
+      <xs:selector xpath=".//servContr" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyCliente">
+      <xs:selector xpath=".//Cliente" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefEquipamento3" refer="keyEquipamento">
+      <xs:selector xpath=".//clienEquip" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefTipoContrato4" refer="keyTipoContrato">
+      <xs:selector xpath=".//tipoContClien" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyChamado">
+      <xs:selector xpath=".//Chamado" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefServico5" refer="keyServico">
+      <xs:selector xpath=".//servChama" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefEquipamento6" refer="keyEquipamento">
+      <xs:selector xpath=".//chamEquip" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyOrdemDeServico">
+      <xs:selector xpath=".//OrdemDeServico" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefTecnico7" refer="keyTecnico">
+      <xs:selector xpath=".//ordemTec" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefMaterial8" refer="keyMaterial">
+      <xs:selector xpath=".//ordemMat" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyTecnico">
+      <xs:selector xpath=".//Tecnico" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyMaterial">
+      <xs:selector xpath=".//Material" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyServico">
+      <xs:selector xpath=".//Servico" />
+      <xs:field xpath="id" />
+    </xs:key>
+  </xs:element>
+</xs:schema>
+

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Category" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="hasBook" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Book">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:choice>
+                            <xs:element name="Borrowable">
+                              <xs:complexType>
+                                <xs:sequence>
+                                  <xs:element name="id" type="xs:string" />
+                                  <xs:element name="involvedIn" minOccurs="0" maxOccurs="unbounded">
+                                    <xs:complexType>
+                                      <xs:sequence>
+                                        <xs:element name="BookTransation">
+                                          <xs:complexType>
+                                            <xs:sequence>
+                                              <xs:element name="id" type="xs:string" />
+                                              <xs:choice>
+                                                <xs:element name="RequestedBooks">
+                                                  <xs:complexType>
+                                                    <xs:sequence>
+                                                      <xs:element name="id" type="xs:string" />
+                                                    </xs:sequence>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                                <xs:element name="IssuedBooks">
+                                                  <xs:complexType>
+                                                    <xs:sequence>
+                                                      <xs:element name="id" type="xs:string" />
+                                                    </xs:sequence>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                              </xs:choice>
+                                            </xs:sequence>
+                                          </xs:complexType>
+                                        </xs:element>
+                                      </xs:sequence>
+                                    </xs:complexType>
+                                  </xs:element>
+                                </xs:sequence>
+                              </xs:complexType>
+                            </xs:element>
+                            <xs:element name="NonBorrowable">
+                              <xs:complexType>
+                                <xs:sequence>
+                                  <xs:element name="id" type="xs:string" />
+                                </xs:sequence>
+                              </xs:complexType>
+                            </xs:element>
+                          </xs:choice>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BookType" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Person" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:choice>
+                <xs:element name="Member">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:element name="requests" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:attribute name="ref" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Librarian">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:element name="issues" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:attribute name="ref" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyCategory">
+      <xs:selector xpath=".//Category" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBook">
+      <xs:selector xpath=".//Book" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBorrowable">
+      <xs:selector xpath=".//Borrowable" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBookTransation">
+      <xs:selector xpath=".//BookTransation" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyRequestedBooks">
+      <xs:selector xpath=".//RequestedBooks" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyIssuedBooks">
+      <xs:selector xpath=".//IssuedBooks" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyNonBorrowable">
+      <xs:selector xpath=".//NonBorrowable" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBookType">
+      <xs:selector xpath=".//BookType" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyPerson">
+      <xs:selector xpath=".//Person" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyMember">
+      <xs:selector xpath=".//Member" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefBookTransation1" refer="keyBookTransation">
+      <xs:selector xpath=".//requests" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyLibrarian">
+      <xs:selector xpath=".//Librarian" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefIssuedBooks2" refer="keyIssuedBooks">
+      <xs:selector xpath=".//issues" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>
+

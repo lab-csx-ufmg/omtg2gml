@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 (http://www.altova.com) by mazuki (darksiderg) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd"/>
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="a5" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+							<xs:element name="contem" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="a6">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:string"/>
+													<xs:element name="contem" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="a4">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="id" type="xs:string"/>
+																			<xs:element name="contem" maxOccurs="unbounded">
+																				<xs:complexType>
+																					<xs:attribute name="ref"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="a7" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+							<xs:element name="contem">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="a8">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="a9" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+							<xs:element name="contem" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ref"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="contem">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="a10">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="a1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+							<xs:element name="contem">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="a2">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:string"/>
+													<xs:element name="contem">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="a3">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="id" type="xs:string"/>
+																			<xs:element name="contem" maxOccurs="unbounded">
+																				<xs:complexType>
+																					<xs:attribute name="ref"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="contem" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ref"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="keya5">
+			<xs:selector xpath=".//a5"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keya6">
+			<xs:selector xpath=".//a6"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keya4">
+			<xs:selector xpath=".//a4"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:keyref name="keyrefa51" refer="keya5">
+			<xs:selector xpath=".//contem6"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:key name="keya7">
+			<xs:selector xpath=".//a7"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keya8">
+			<xs:selector xpath=".//a8"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keya9">
+			<xs:selector xpath=".//a9"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:keyref name="keyrefa82" refer="keya8">
+			<xs:selector xpath=".//contem9"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:key name="keya10">
+			<xs:selector xpath=".//a10"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keya1">
+			<xs:selector xpath=".//a1"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keya2">
+			<xs:selector xpath=".//a2"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keya3">
+			<xs:selector xpath=".//a3"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:keyref name="keyrefa73" refer="keya7">
+			<xs:selector xpath=".//contem3"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:keyref name="keyrefa44" refer="keya4">
+			<xs:selector xpath=".//contem5"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+	</xs:element>
+</xs:schema>

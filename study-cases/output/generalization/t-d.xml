@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd"/>
+	<xs:element name="A">
+		<xs:complexType>
+				<xs:choice>
+					<xs:element name="B">
+						<xs:complexType/>
+					</xs:element>
+					<xs:element name="C">
+						<xs:complexType/>
+					</xs:element>
+				</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

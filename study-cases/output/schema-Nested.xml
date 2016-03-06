@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd"/>
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="spatialDomain" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="gml:boundedBy" minOccurs="0"/>
+							<xs:element ref="gml:extentOf" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="building" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="code" type="xs:integer"/>
+							<xs:choice>
+								<xs:element name="private">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="type" type="xs:string"/>
+											<xs:element ref="gml:LineString"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="public">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="gov" type="xs:string"/>
+											<xs:element ref="gml:Polygon"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="thoroughfare" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string"/>
+							<xs:element name="aggregationTS" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="streetSegment">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:integer"/>
+													<xs:element name="type" type="xs:string"/>
+													<xs:element ref="gml:LineString"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="region" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string"/>
+							<xs:element ref="gml:Polygon"/>
+							<xs:element name="aggregationRN" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="neighborhood">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="name" type="xs:string"/>
+													<xs:element ref="gml:Polygon"/>
+													<xs:element name="containsNB" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="block">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="code" type="xs:integer"/>
+																			<xs:element name="sector" type="xs:integer"/>
+																			<xs:element ref="gml:Polygon"/>
+																			<xs:element name="containsBB" maxOccurs="unbounded">
+																				<xs:complexType>
+																					<xs:attribute name="ref"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="interceptNT" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="ref"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="hasNS" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="streetCrossing">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="id" type="xs:integer"/>
+																			<xs:element ref="gml:Point"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="keyregion">
+			<xs:selector xpath=".//region"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:key name="keyneighborhood">
+			<xs:selector xpath=".//neighborhood"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:key name="keyblock">
+			<xs:selector xpath=".//block"/>
+			<xs:field xpath="code"/>
+		</xs:key>
+		<xs:key name="keycontainsBB">
+			<xs:selector xpath=".//containsBB"/>
+			<xs:field xpath="@ref"/>
+		</xs:key>
+		<xs:keyref name="keyrefbuilding" refer="keybuilding">
+			<xs:selector xpath=".//containsBB"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:keyref name="keyrefthoroughfare" refer="keythoroughfare">
+			<xs:selector xpath=".//interceptNT"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:key name="keystreetCrossing">
+			<xs:selector xpath=".//streetCrossing"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keybuilding">
+			<xs:selector xpath=".//building"/>
+			<xs:field xpath="code"/>
+		</xs:key>
+		<xs:key name="keythoroughfare">
+			<xs:selector xpath=".//thoroughfare"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:key name="keystreetSegment">
+			<xs:selector xpath=".//streetSegment"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+	</xs:element>
+</xs:schema>

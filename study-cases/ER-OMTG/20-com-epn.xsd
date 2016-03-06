@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Net" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="staNet" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Statistic">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="staCon" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Conversion">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="chamEquip" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Map">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="netLoc" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Location">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="mapLoc" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="linLoc" minOccurs="1" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Line">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                      <xs:element name="mapLin" minOccurs="1" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:attribute name="ref" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="linLinURL" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="LineURL">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="id" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="locEquip" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Equipment">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                      <xs:element name="equipEquipAdr" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="EquipmentAdress">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="id" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="locLocURL" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="LocationURL">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyNet">
+      <xs:selector xpath=".//Net" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyStatistic">
+      <xs:selector xpath=".//Statistic" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyConversion">
+      <xs:selector xpath=".//Conversion" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyMap">
+      <xs:selector xpath=".//Map" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyLocation">
+      <xs:selector xpath=".//Location" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefMap1" refer="keyMap">
+      <xs:selector xpath=".//mapLoc" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyLine">
+      <xs:selector xpath=".//Line" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefMap2" refer="keyMap">
+      <xs:selector xpath=".//mapLin" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyLineURL">
+      <xs:selector xpath=".//LineURL" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyEquipment">
+      <xs:selector xpath=".//Equipment" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyEquipmentAdress">
+      <xs:selector xpath=".//EquipmentAdress" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyLocationURL">
+      <xs:selector xpath=".//LocationURL" />
+      <xs:field xpath="id" />
+    </xs:key>
+  </xs:element>
+</xs:schema>
+

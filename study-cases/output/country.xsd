@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd"/>
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="spatialDomain" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="gml:boundedBy" minOccurs="0"/>
+							<xs:element ref="gml:extentOf" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="road" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string"/>
+							<xs:element ref="gml:LineString"/>
+							<xs:element name="crossesRoCo" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ref"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="interceptRoRi" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ref"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="river" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string"/>
+							<xs:element ref="gml:LineString"/>
+							<xs:element name="crossesRiCo" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ref"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="country" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string"/>
+							<xs:element name="acronym" type="xs:string"/>
+							<xs:element name="pop" type="xs:integer"/>
+							<xs:element ref="gml:Polygon"/>
+							<xs:element name="aggregation" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="state">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="name" type="xs:string"/>
+													<xs:element name="acronym" type="xs:string"/>
+													<xs:element name="region" type="xs:string"/>
+													<xs:element name="pop" type="xs:integer"/>
+													<xs:element ref="gml:Polygon"/>
+													<xs:element name="containsStCo" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="county">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="name" type="xs:string"/>
+																			<xs:element ref="gml:Polygon"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="containsStCa">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="capital">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="name" type="xs:string"/>
+																			<xs:element name="pop" type="xs:integer"/>
+																			<xs:element ref="gml:Point"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="keyroad">
+			<xs:selector xpath=".//road"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:keyref name="keyrefcounty" refer="keycounty">
+			<xs:selector xpath=".//crossesRoCo"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:keyref name="keyrefriver" refer="keyriver">
+			<xs:selector xpath=".//interceptRoRi"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:key name="keyriver">
+			<xs:selector xpath=".//river"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:keyref name="keyrefcounty2" refer="keycounty">
+			<xs:selector xpath=".//crossesRiCo"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:key name="keycountry">
+			<xs:selector xpath=".//country"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:key name="keystate">
+			<xs:selector xpath=".//state"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:key name="keycounty">
+			<xs:selector xpath=".//county"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:key name="keycapital">
+			<xs:selector xpath=".//capital"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+	</xs:element>
+</xs:schema>

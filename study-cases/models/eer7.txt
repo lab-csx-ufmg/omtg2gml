@@ -1,0 +1,12 @@
+A(int ka KEY)
+B(int kb KEY)
+C(int kc KEY)
+C1(int kc1 KEY)
+C2(int kc2 KEY)
+C3(int kc3 KEY)
+D(int kd KEY)
+.
+A#B#R1#0,1#1,1
+B#C#R2#1,1#0,1
+(t)#(d)#C#C1#C2#C3
+C3#D#aggregation

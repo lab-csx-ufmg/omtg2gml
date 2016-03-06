@@ -1,0 +1,5 @@
+A-Conventional(int id KEY)
+B-Conventional(string b)
+C-Conventional(string c)
+.
+(p)#(o)#A#B#C

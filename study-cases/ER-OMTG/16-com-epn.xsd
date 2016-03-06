@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Livro" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="temBL" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Pessoa" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="temTP" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:choice>
+                <xs:element name="Professor">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Aluno">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Curso" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="temCD" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Ementa" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="temDE" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Disciplina">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="temDT" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Turma">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="temEB" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Bibliografia">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyLivro">
+      <xs:selector xpath=".//Livro" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefBibliografia1" refer="keyBibliografia">
+      <xs:selector xpath=".//temBL" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyPessoa">
+      <xs:selector xpath=".//Pessoa" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefTurma2" refer="keyTurma">
+      <xs:selector xpath=".//temTP" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyProfessor">
+      <xs:selector xpath=".//Professor" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyAluno">
+      <xs:selector xpath=".//Aluno" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyCurso">
+      <xs:selector xpath=".//Curso" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefDisciplina3" refer="keyDisciplina">
+      <xs:selector xpath=".//temCD" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyEmenta">
+      <xs:selector xpath=".//Ementa" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyDisciplina">
+      <xs:selector xpath=".//Disciplina" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyTurma">
+      <xs:selector xpath=".//Turma" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBibliografia">
+      <xs:selector xpath=".//Bibliografia" />
+      <xs:field xpath="id" />
+    </xs:key>
+  </xs:element>
+</xs:schema>
+

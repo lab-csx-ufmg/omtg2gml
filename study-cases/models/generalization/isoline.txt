@@ -1,0 +1,4 @@
+A-Point(int id KEY)
+B-Convetional(int id KEY)
+.
+A#B#R1#0,n#1,1

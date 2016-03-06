@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="VectorContamination" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Contigs" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="isMadeUpOfContigs" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="matchesBlastHits" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="BlastHits">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="isLinked" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="GeneOntologyTerms">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EST" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="containsER" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Repeats">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="containsEV" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Cluster" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="belongsTo" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Organism" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="has" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyVectorContamination">
+      <xs:selector xpath=".//VectorContamination" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyContigs">
+      <xs:selector xpath=".//Contigs" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefEST1" refer="keyEST">
+      <xs:selector xpath=".//isMadeUpOfContigs" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyBlastHits">
+      <xs:selector xpath=".//BlastHits" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyGeneOntologyTerms">
+      <xs:selector xpath=".//GeneOntologyTerms" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyEST">
+      <xs:selector xpath=".//EST" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyRepeats">
+      <xs:selector xpath=".//Repeats" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefVectorContamination2" refer="keyVectorContamination">
+      <xs:selector xpath=".//containsEV" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyCluster">
+      <xs:selector xpath=".//Cluster" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefEST3" refer="keyEST">
+      <xs:selector xpath=".//belongsTo" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyOrganism">
+      <xs:selector xpath=".//Organism" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefEST4" refer="keyEST">
+      <xs:selector xpath=".//has" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>
+

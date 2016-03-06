@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--A OnJava Journal Catalog--> 
+
+<catalog 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+   xsi:noNamespaceSchemaLocation="C:/Users/Owner/workspace/OmtgXMLSchema/output/generate_xml_doc/catalog.xsd" 
+   title="developerWorks" publisher="IBM"> 
+ <journal date="July 2006"> 
+   <article>
+    <title>The Java XPath API</title>
+    <author>Elliotte Rusty Harold</author>
+   </article>
+ </journal>
+ <journal date="May 2006">
+   <article> 
+    <title>Develop Java applications for DB2 XML data</title>
+    <author>Cynthia M. Saracco</author>
+   </article>
+ </journal>
+</catalog>

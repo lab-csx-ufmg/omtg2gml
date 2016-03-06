@@ -1,0 +1,13 @@
+country-PlanarSubdivision(string name KEY, string acronym, int pop)
+state-Polygon(string name KEY, string acronym, string region, int pop)
+capital-Point(string name KEY, int pop)
+county-Polygon(string name KEY)
+road-Line(string name KEY)
+river-Line(string name KEY)
+.
+country#state#aggregation
+state#county#containsStCo#1,n#1,1
+state#capital#containsStCa#1,1#1,1
+road#county#crossesRoCo#1,n#0,n
+road#river#interceptRoRi#0,n#0,n
+river#county#crossesRiCo#1,n#0,n

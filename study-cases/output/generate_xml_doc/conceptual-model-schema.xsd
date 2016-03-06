@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="db-properties">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="db-type"/>
+							<xs:element name="database"/>
+							<xs:element name="username"/>
+							<xs:element name="password"/>
+							<xs:element name="port-number"/>
+							<xs:element name="xml-doc-name"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="conceptual-model">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="classes">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="class" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="name"/>
+													<xs:element name="type"/>
+													<xs:element name="table-name"/>
+													<xs:element name="geometry-column"/>
+													<xs:element name="number-of-registers"/>
+													<xs:element name="attributes">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="attribute" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="name"/>
+																			<xs:element name="type"/>
+																			<xs:element name="column-name"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="relationships">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="relationship" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="name">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="contains"/>
+																<xs:enumeration value="covers"/>
+																<xs:enumeration value="overlap"/>
+																<xs:enumeration value="touches"/>
+																<xs:enumeration value="crosses"/>
+																<xs:enumeration value="near"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="distance" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="unit" minOccurs="0">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="meter|m"/>
+																<xs:pattern value="kilometer|km"/>
+																<xs:pattern value="centimeter|cm"/>
+																<xs:pattern value="millimeter|mm"/>
+																<xs:pattern value="mile"/>
+																<xs:pattern value="nautical|naut_mile"/>
+																<xs:pattern value="foot"/>
+																<xs:pattern value="inch"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="class1"/>
+													<xs:element name="cardinality1">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="min"/>
+																<xs:element name="max"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="class2"/>
+													<xs:element name="cardinality2">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="min"/>
+																<xs:element name="max"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

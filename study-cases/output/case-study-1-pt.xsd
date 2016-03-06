@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd"/>
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="spatialDomain" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="gml:boundedBy" minOccurs="0"/>
+							<xs:element ref="gml:extentOf" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Logradouro" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+							<xs:element name="nome" type="xs:string"/>
+							<xs:element name="belongs" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Trecho">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:string"/>
+													<xs:element name="tipo" type="xs:string"/>
+													<xs:element ref="gml:LineString"/>
+													<xs:element name="crosses" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="ref"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="near" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="ref"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="n1" type="xs:string"/>
+													<xs:element name="n2" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Regiao" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="codigo" type="xs:string"/>
+							<xs:element name="nome" type="xs:string"/>
+							<xs:choice maxOccurs="2">
+								<xs:element name="PontoRegiao">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element ref="gml:Point"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="FronteiraRegiao">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element ref="gml:Polygon"/>
+											<xs:element name="contains-touch" maxOccurs="unbounded">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="Cruzamento">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="id" type="xs:string"/>
+																	<xs:element ref="gml:Point"/>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="spatial-aggregation" maxOccurs="unbounded">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="Bairro">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="codigo" type="xs:string"/>
+																	<xs:element name="nome" type="xs:string"/>
+																	<xs:element ref="gml:Polygon"/>
+																	<xs:element name="contains-covers" minOccurs="0" maxOccurs="unbounded">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="Quadra">
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="codigo" type="xs:string"/>
+																							<xs:element ref="gml:Polygon"/>
+																							<xs:element name="contains" maxOccurs="unbounded">
+																								<xs:complexType>
+																									<xs:sequence>
+																										<xs:element name="Edificacao">
+																											<xs:complexType>
+																												<xs:sequence>
+																													<xs:element name="id" type="xs:string"/>
+																													<xs:element name="numero" type="xs:string"/>
+																													<xs:choice>
+																														<xs:element name="Residencia">
+																															<xs:complexType>
+																																<xs:sequence>
+																																	<xs:element ref="gml:Point"/>
+																																</xs:sequence>
+																															</xs:complexType>
+																														</xs:element>
+																														<xs:element name="Comercio">
+																															<xs:complexType>
+																																<xs:sequence>
+																																	<xs:element name="tipoComercio" type="xs:string"/>
+																																	<xs:element ref="gml:Point"/>
+																																</xs:sequence>
+																															</xs:complexType>
+																														</xs:element>
+																														<xs:element name="Industria">
+																															<xs:complexType>
+																																<xs:sequence>
+																																	<xs:element name="tipoIndustria" type="xs:string"/>
+																																	<xs:element name="tamanhoInd">
+																																		<xs:simpleType>
+																																			<xs:restriction base="xs:string">
+																																				<xs:enumeration value="pequena"/>
+																																				<xs:enumeration value="media"/>
+																																				<xs:enumeration value="grande"/>
+																																			</xs:restriction>
+																																		</xs:simpleType>
+																																	</xs:element>
+																																	<xs:element ref="gml:Point"/>
+																																</xs:sequence>
+																															</xs:complexType>
+																														</xs:element>
+																													</xs:choice>
+																												</xs:sequence>
+																											</xs:complexType>
+																										</xs:element>
+																									</xs:sequence>
+																								</xs:complexType>
+																							</xs:element>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="keyLogradouro">
+			<xs:selector xpath=".//Logradouro"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keyTrecho">
+			<xs:selector xpath=".//Trecho"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:keyref name="keyrefBairro1" refer="keyBairro">
+			<xs:selector xpath=".//overlapbdyintersect-overlapbdydisjoint-inside-coveredby"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:keyref name="keyrefEdificacao2" refer="keyEdificacao">
+			<xs:selector xpath=".//near"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:keyref name="keyrefCruzamento3" refer="keyCruzamento">
+			<xs:selector xpath=".//Trecho"/>
+			<xs:field xpath="n1"/>
+		</xs:keyref>
+		<xs:keyref name="keyrefCruzamento4" refer="keyCruzamento">
+			<xs:selector xpath=".//Trecho"/>
+			<xs:field xpath="n2"/>
+		</xs:keyref>
+		<xs:key name="keyRegiao">
+			<xs:selector xpath=".//Regiao"/>
+			<xs:field xpath="codigo"/>
+		</xs:key>
+		<xs:key name="keyCruzamento">
+			<xs:selector xpath=".//Cruzamento"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keyBairro">
+			<xs:selector xpath=".//Bairro"/>
+			<xs:field xpath="codigo"/>
+		</xs:key>
+		<xs:key name="keyQuadra">
+			<xs:selector xpath=".//Quadra"/>
+			<xs:field xpath="codigo"/>
+		</xs:key>
+		<xs:key name="keyEdificacao">
+			<xs:selector xpath=".//Edificacao"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Customer" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+							<xs:element name="raise" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="SalesOrder">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:string"/>
+													<xs:element name="comprise" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="SalesOderLine">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="id" type="xs:string"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="returnUnsold" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Returns">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Colour" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+							<xs:element name="describe" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Product">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:string"/>
+													<xs:element name="return" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ReturnsLine">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="id" type="xs:string"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="beFor" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ProductSources">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="id" type="xs:string"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="feature" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="ref"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Supplier" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+							<xs:element name="beAFont" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ref"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Style" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Size" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="keyCustomer">
+			<xs:selector xpath=".//Customer"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keySalesOrder">
+			<xs:selector xpath=".//SalesOrder"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keySalesOderLine">
+			<xs:selector xpath=".//SalesOderLine"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keyReturns">
+			<xs:selector xpath=".//Returns"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keyColour">
+			<xs:selector xpath=".//Colour"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keyProduct">
+			<xs:selector xpath=".//Product"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keyReturnsLine">
+			<xs:selector xpath=".//ReturnsLine"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keyProductSources">
+			<xs:selector xpath=".//ProductSources"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:keyref name="keyrefSalesOderLine1" refer="keySalesOderLine">
+			<xs:selector xpath=".//feature"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:key name="keySupplier">
+			<xs:selector xpath=".//Supplier"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:keyref name="keyrefProductSources2" refer="keyProductSources">
+			<xs:selector xpath=".//beAFont"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+		<xs:key name="keyStyle">
+			<xs:selector xpath=".//Style"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="keySize">
+			<xs:selector xpath=".//Size"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+	</xs:element>
+</xs:schema>

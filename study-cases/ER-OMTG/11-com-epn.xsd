@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Creep" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="isTypeCC" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="CreepInstantiation">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="runInto" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Region" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="containsRC" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Character">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Item" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="isTypeII" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ItemInstantiation">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="carryingCI" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Account" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="containsCC" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyCreep">
+      <xs:selector xpath=".//Creep" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyCreepInstantiation">
+      <xs:selector xpath=".//CreepInstantiation" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefCharacter1" refer="keyCharacter">
+      <xs:selector xpath=".//runInto" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyRegion">
+      <xs:selector xpath=".//Region" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyCharacter">
+      <xs:selector xpath=".//Character" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyItem">
+      <xs:selector xpath=".//Item" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyItemInstantiation">
+      <xs:selector xpath=".//ItemInstantiation" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefCharacter2" refer="keyCharacter">
+      <xs:selector xpath=".//carryingCI" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyAccount">
+      <xs:selector xpath=".//Account" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefCharacter3" refer="keyCharacter">
+      <xs:selector xpath=".//containsCC" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>
+

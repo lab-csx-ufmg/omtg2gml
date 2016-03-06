@@ -1,0 +1,17 @@
+neighborhood-PlanarSubdivision(string name KEY)
+block-Polygon(int code KEY, int sector)
+building-Conventional(int code KEY)
+thoroughfare-Conventional(string name KEY)
+public-Polygon(string gov)
+private-Line(string type)
+streetSegment-BiLine(int id KEY, string type)
+streetCrossing-Node(int id KEY)
+region-PlanarSubdivision(string name KEY)
+.
+region#neighborhood#aggregation
+neighborhood#block#containsNB#0,n#1,1
+neighborhood#thoroughfare#interceptNT#1,n#1,n
+block#building#containsBB#1,n#0,1
+(t)#(d)#building#private#public
+thoroughfare#streetSegment#aggTS#1,n#1,1
+neighborhood#streetCrossing#hasNS#0,n#1,1

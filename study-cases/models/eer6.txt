@@ -1,0 +1,13 @@
+disease(int ka KEY)
+terapyPrescription(int kb KEY)
+physician(int kc KEY)
+therapy(int kd KEY)
+patient(int ke KEY)
+hospital(int kf KEY)
+.
+disease#terapyPrescription#toCure#0,n#1,1
+terapyPrescription#physician#prescribe#1,1#0,n
+terapyPrescription#therapy#ofTherapy#1,n#1,n
+therapy#patient#follows#1,n#0,n
+patient#disease#hitBy#0,n#0,n
+patient#hospital#isIn#0,1#1,n

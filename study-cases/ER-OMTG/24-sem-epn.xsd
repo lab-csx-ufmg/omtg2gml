@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LibraryItem" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="publishes" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:choice>
+                <xs:element name="Magazine">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Journal">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Book">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:element name="authors" minOccurs="1" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:attribute name="ref" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="ConfProceedings">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                      <xs:element name="editors" minOccurs="1" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:attribute name="ref" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Publisher" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Author" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Borrower" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:choice>
+                <xs:element name="Student">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Faculty">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="Other">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:string" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyLibraryItem">
+      <xs:selector xpath=".//LibraryItem" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefBorrower1" refer="keyBorrower">
+      <xs:selector xpath=".//publishes" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyMagazine">
+      <xs:selector xpath=".//Magazine" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyJournal">
+      <xs:selector xpath=".//Journal" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBook">
+      <xs:selector xpath=".//Book" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefAuthor2" refer="keyAuthor">
+      <xs:selector xpath=".//authors" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyConfProceedings">
+      <xs:selector xpath=".//ConfProceedings" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefAuthor3" refer="keyAuthor">
+      <xs:selector xpath=".//editors" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyPublisher">
+      <xs:selector xpath=".//Publisher" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyAuthor">
+      <xs:selector xpath=".//Author" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyBorrower">
+      <xs:selector xpath=".//Borrower" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyStudent">
+      <xs:selector xpath=".//Student" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyFaculty">
+      <xs:selector xpath=".//Faculty" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyOther">
+      <xs:selector xpath=".//Other" />
+      <xs:field xpath="id" />
+    </xs:key>
+  </xs:element>
+</xs:schema>
+

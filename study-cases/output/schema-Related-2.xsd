@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 (http://www.altova.com) by mazuki (darksiderg) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd"/>
+	<xs:element name="prova">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="schematerritory">
+					<xs:annotation>
+						<xs:documentation>schema territory</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="gml:Polygon"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="building" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>entity</xs:documentation>
+						<xs:appinfo>
+							<type>entity</type>
+							<typetr>inclusion</typetr>
+						</xs:appinfo>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="code" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>attribute</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="geometry">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="gml:Polygon"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Buildingspecialization">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="public">
+											<xs:annotation>
+												<xs:documentation>entity</xs:documentation>
+												<xs:appinfo>
+													<type>entity</type>
+													<typetr>inclusion</typetr>
+													<specialized>Building</specialized>
+												</xs:appinfo>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="gov" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>attribute</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Private">
+											<xs:annotation>
+												<xs:documentation>entity</xs:documentation>
+												<xs:appinfo>
+													<type>entity</type>
+													<typetr>inclusion</typetr>
+													<specialized>Building</specialized>
+												</xs:appinfo>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="type" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>attribute</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="containsBB" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>relationship</xs:documentation>
+									<xs:appinfo>
+										<type>relation</type>
+										<typet>contains</typet>
+										<prTopological>None</prTopological>
+									</xs:appinfo>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="block">
+											<xs:complexType>
+												<xs:attribute name="keyref"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="thoroughfare" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>entity</xs:documentation>
+						<xs:appinfo>
+							<type>entity</type>
+							<typetr>inclusion</typetr>
+						</xs:appinfo>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>attribute</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="thoroughfareaggregation1">
+								<xs:annotation>
+									<xs:documentation>aggregation</xs:documentation>
+									<xs:appinfo>
+										<type>aggregation</type>
+									</xs:appinfo>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="streetSegment">
+											<xs:annotation>
+												<xs:documentation>entity</xs:documentation>
+												<xs:appinfo>
+													<type>entity</type>
+													<typetr>inclusion</typetr>
+												</xs:appinfo>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:integer">
+														<xs:annotation>
+															<xs:documentation>attribute</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="type" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>attribute</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="geometry">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element ref="gml:LineString"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="region" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>entity</xs:documentation>
+						<xs:appinfo>
+							<type>entity</type>
+							<typetr>inclusion</typetr>
+						</xs:appinfo>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>attribute</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="geometry">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="gml:Polygon"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="regionaggregation1">
+								<xs:annotation>
+									<xs:documentation>aggregation</xs:documentation>
+									<xs:appinfo>
+										<type>aggregation</type>
+									</xs:appinfo>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="neighborhood">
+											<xs:annotation>
+												<xs:documentation>entity</xs:documentation>
+												<xs:appinfo>
+													<type>entity</type>
+													<typetr>inclusion</typetr>
+												</xs:appinfo>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="name" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>attribute</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="geometry">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element ref="gml:Polygon"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="containsNB" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>relationship</xs:documentation>
+															<xs:appinfo>
+																<type>relation</type>
+																<typet>contains</typet>
+																<prTopological>None</prTopological>
+															</xs:appinfo>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="block">
+																	<xs:annotation>
+																		<xs:documentation>entity</xs:documentation>
+																		<xs:appinfo>
+																			<type>entity</type>
+																			<typetr>inclusion</typetr>
+																		</xs:appinfo>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="code" type="xs:integer">
+																				<xs:annotation>
+																					<xs:documentation>attribute</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="sector" type="xs:integer">
+																				<xs:annotation>
+																					<xs:documentation>attribute</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="geometry">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element ref="gml:Polygon"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="hasNS" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>relationship</xs:documentation>
+															<xs:appinfo>
+																<type>relation</type>
+																<typet>contains</typet>
+																<prTopological>None</prTopological>
+															</xs:appinfo>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="streetCrossing">
+																	<xs:annotation>
+																		<xs:documentation>entity</xs:documentation>
+																		<xs:appinfo>
+																			<type>entity</type>
+																			<typetr>inclusion</typetr>
+																		</xs:appinfo>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="id" type="xs:integer">
+																				<xs:annotation>
+																					<xs:documentation>attribute</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="geometry">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element ref="gml:Point"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="containsNA" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>relationship</xs:documentation>
+															<xs:appinfo>
+																<type>relation</type>
+																<typet>contains</typet>
+																<prTopological>None</prTopological>
+															</xs:appinfo>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="address">
+																	<xs:annotation>
+																		<xs:documentation>entity</xs:documentation>
+																		<xs:appinfo>
+																			<type>entity</type>
+																			<typetr>inclusion</typetr>
+																		</xs:appinfo>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="id" type="xs:integer">
+																				<xs:annotation>
+																					<xs:documentation>attribute</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="number" type="xs:integer">
+																				<xs:annotation>
+																					<xs:documentation>attribute</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="geometry">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element ref="gml:Point"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="neartoTA" maxOccurs="unbounded">
+																				<xs:annotation>
+																					<xs:documentation>relationship</xs:documentation>
+																					<xs:appinfo>
+																						<type>relation</type>
+																					</xs:appinfo>
+																				</xs:annotation>
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="thoroughfare">
+																							<xs:complexType>
+																								<xs:attribute name="keyref"/>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="chiaveneighborhood">
+			<xs:selector xpath="region/regionaggregation1/neighborhood"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:key name="chiavestreetCrossing">
+			<xs:selector xpath="region/regionaggregation1/neighborhood/hasNS/streetCrossing"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="chiaveaddress">
+			<xs:selector xpath="region/regionaggregation1/neighborhood/containsNA/address"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="chiaveblock">
+			<xs:selector xpath="region/regionaggregation1/neighborhood/containsNB/block"/>
+			<xs:field xpath="code"/>
+		</xs:key>
+		<xs:key name="chiaveregion">
+			<xs:selector xpath="region"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:key name="chiavestreetSegment">
+			<xs:selector xpath="thoroughfare/thoroughfareaggregation1/streetSegment"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:key name="chiavethoroughfare">
+			<xs:selector xpath="thoroughfare"/>
+			<xs:field xpath="name"/>
+		</xs:key>
+		<xs:key name="chiaveBuilding">
+			<xs:selector xpath="Building"/>
+			<xs:field xpath="code"/>
+		</xs:key>
+		<xs:keyref name="chiaveneartoTAthoroughfare" refer="chiavethoroughfare">
+			<xs:selector xpath="region/regionaggregation1/neighborhood/containsNA/address/neartoTA/thoroughfare"/>
+			<xs:field xpath="@keyref"/>
+		</xs:keyref>
+		<xs:keyref name="chiavecontainsBBblock" refer="chiaveblock">
+			<xs:selector xpath="Building/containsBB/block"/>
+			<xs:field xpath="@keyref"/>
+		</xs:keyref>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,14 @@
+A_1-Conventional(int k1 KEY)
+A_2-Conventional(int k2 KEY)
+A_3-Conventional(int k3 KEY)
+A_4-Conventional(int k4 KEY)
+A_5-Conventional(int k5 KEY)
+A_6-Conventional(int k6 KEY)
+A_7-Conventional(int k7 KEY)
+.
+A_4#A_5#R5#1,n#1,1
+A_5#A_6#R6#1,n#1,1
+A_4#A_3#R2#1,1#1,1
+A_3#A_2#R3#1,1#1,1
+A_2#A_1#R4#1,1#1,1
+A_6#A_7#R7#1,n#1,1

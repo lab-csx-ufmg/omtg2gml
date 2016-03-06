@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="College" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="hasDeanColl" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Dean">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="hasCollDep" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Department">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="hasDepPro" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Professor">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                      <xs:element name="chair" minOccurs="0" maxOccurs="1">
+                                        <xs:complexType>
+                                          <xs:attribute name="ref" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="teaches" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="Section">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="id" type="xs:string" />
+                                                  <xs:element name="register" minOccurs="1" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                      <xs:attribute name="ref" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="hasDepCour" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Course">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                      <xs:element name="hasCourSec" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:attribute name="ref" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="contains" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Student">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyCollege">
+      <xs:selector xpath=".//College" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyDean">
+      <xs:selector xpath=".//Dean" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyDepartment">
+      <xs:selector xpath=".//Department" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyProfessor">
+      <xs:selector xpath=".//Professor" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefDepartment1" refer="keyDepartment">
+      <xs:selector xpath=".//chair" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keySection">
+      <xs:selector xpath=".//Section" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefStudent2" refer="keyStudent">
+      <xs:selector xpath=".//register" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyCourse">
+      <xs:selector xpath=".//Course" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefSection3" refer="keySection">
+      <xs:selector xpath=".//hasCourSec" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyStudent">
+      <xs:selector xpath=".//Student" />
+      <xs:field xpath="id" />
+    </xs:key>
+  </xs:element>
+</xs:schema>
+

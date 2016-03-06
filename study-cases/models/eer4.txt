@@ -1,0 +1,8 @@
+A(int ka KEY)
+B(int kb KEY)
+C(int kc KEY)
+D(int kd KEY)
+.
+A#B#R1#0,1#1,1
+B#C#R2#1,1#1,1
+A#D#R3#1,n#0,n

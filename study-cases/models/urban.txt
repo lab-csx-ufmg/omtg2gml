@@ -1,0 +1,15 @@
+city-PlanarSubdivision(int name KEY)
+neighborhood-PlanarSubdivision(int name KEY)
+block-Polygon(int cod KEY)
+address-Point(int cod KEY)
+building-Conventional(int cod KEY)
+thoroughfare-Conventional(int cod KEY)
+public-Polygon(string gov)
+private-Polygon(string type)
+.
+city#neighborhood#aggregation
+neighborhood#block#contains1#1,n#1,1
+neighborhood#address#contains2#1,n#1,1
+block#building#contains3#1,n#0,1
+thoroughfare#address#has#1,n#1,1
+(t)#(d)#building#private#public

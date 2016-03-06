@@ -1,0 +1,8 @@
+X-Conventional(int id KEY)
+A-Conventional(int id KEY)
+B-Conventional(int id KEY)
+C-Conventional(int id KEY)
+.
+X#A#S#1,n#1,1
+A#B#R1#1,n#1,1
+B#C#R2#1,1#1,n

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.0.0/base/feature.xsd" />
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Book" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Section" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="manages" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Librarian">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" type="xs:string" />
+                          <xs:element name="checks" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="ref" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="works" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="contains" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Member" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="borrow" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="hold" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Title" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:string" />
+              <xs:element name="hasCopy" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ref" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="keyBook">
+      <xs:selector xpath=".//Book" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keySection">
+      <xs:selector xpath=".//Section" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyLibrarian">
+      <xs:selector xpath=".//Librarian" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefBook1" refer="keyBook">
+      <xs:selector xpath=".//checks" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefLibrarian2" refer="keyLibrarian">
+      <xs:selector xpath=".//works" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefBook3" refer="keyBook">
+      <xs:selector xpath=".//contains" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyMember">
+      <xs:selector xpath=".//Member" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:key name="keyborrow">
+      <xs:selector xpath=".//borrow" />
+      <xs:field xpath="@ref" />
+    </xs:key>
+    <xs:keyref name="keyrefBook4" refer="keyBook">
+      <xs:selector xpath=".//borrow" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:keyref name="keyrefTitle5" refer="keyTitle">
+      <xs:selector xpath=".//hold" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    <xs:key name="keyTitle">
+      <xs:selector xpath=".//Title" />
+      <xs:field xpath="id" />
+    </xs:key>
+    <xs:keyref name="keyrefBook6" refer="keyBook">
+      <xs:selector xpath=".//hasCopy" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>
+
